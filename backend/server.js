@@ -73,13 +73,13 @@ connectMongoDB();
 // Middleware
 const allowedOrigins = process.env.NODE_ENV === 'production' 
   ? [
-      'https://incomparable-pasca-899ef8.netlify.app',
+      'https://reliable-chimera-549542.netlify.app',
       process.env.FRONTEND_URL
     ].filter(Boolean)
   : [
       'http://localhost:3000',
       'http://localhost:5000',
-      'https://incomparable-pasca-899ef8.netlify.app',
+      'https://reliable-chimera-549542.netlify.app',
       process.env.FRONTEND_URL
     ].filter(Boolean);
 
