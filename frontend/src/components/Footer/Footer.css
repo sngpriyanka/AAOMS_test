@@ -1,0 +1,396 @@
+/* Footer.css */
+
+/* ==================== MAIN FOOTER ==================== */
+.footer {
+  background-color: #1a1a1a;
+  color: #fff;
+}
+
+.footer__container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* ==================== TRUST BADGES SECTION ==================== */
+.footer__trust-section {
+  background-color: #222;
+  padding: 40px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer__trust-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.footer__trust-badge {
+  text-align: center;
+  padding: 10px;
+}
+
+.footer__trust-icon {
+  font-size: 22px;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.footer__trust-content h4 {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+.footer__trust-content p {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.6;
+  max-width: 220px;
+  margin: 0 auto;
+}
+
+/* ==================== MAIN FOOTER CONTENT ==================== */
+.footer__main {
+  padding: 50px 0;
+}
+
+.footer__content {
+  display: grid;
+  grid-template-columns: 1.2fr 1.8fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+/* ==================== BRAND SECTION ==================== */
+.footer__brand {
+  max-width: 260px;
+}
+
+.footer__logo {
+  margin-bottom: 20px;
+}
+
+.footer__logo-image {
+  max-height: 80px;
+  max-width: 150px;
+  object-fit: contain;
+  display: block;
+  background: transparent;
+}
+
+.footer__description {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.8;
+}
+
+/* ==================== NEWSLETTER SECTION ==================== */
+.footer__newsletter {
+  max-width: 420px;
+}
+
+.footer__title {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+  color: #c9a227;
+}
+
+.footer__newsletter-text {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.45);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.footer__newsletter-form {
+  display: flex;
+  max-width: 350px;
+}
+
+.footer__newsletter-input {
+  flex: 1;
+  padding: 12px 16px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-right: none;
+  color: #fff;
+  font-size: 11px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.footer__newsletter-input::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+  letter-spacing: 1px;
+}
+
+.footer__newsletter-input:focus {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.footer__newsletter-btn {
+  padding: 12px 20px;
+  background: #fff;
+  color: #000;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border: 1px solid #fff;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.footer__newsletter-btn:hover {
+  background: #c9a227;
+  border-color: #c9a227;
+}
+
+/* ==================== LINKS SECTION ==================== */
+.footer__links-section {
+  padding-top: 5px;
+}
+
+.footer__links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer__links li {
+  margin-bottom: 10px;
+}
+
+.footer__links a {
+  font-size: 10px;
+  color: #c9a227;
+  letter-spacing: 1.5px;
+  transition: color 0.3s;
+  text-decoration: none;
+}
+
+.footer__links a:hover {
+  color: #fff;
+}
+
+/* ==================== BOTTOM BAR ==================== */
+.footer__bottom {
+  padding: 18px 0;
+  background-color: #111;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer__bottom-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer__bottom-left {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.footer__copyright {
+  font-size: 9px;
+  color: rgba(255, 255, 255, 0.35);
+  letter-spacing: 1px;
+}
+
+.footer__payment {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer__payment-icon {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.footer__payment-gpay {
+  font-size: 10px;
+  padding: 3px 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  font-weight: 500;
+}
+
+.footer__payment-esewa {
+  height: 30px;
+  object-fit: contain;
+}
+
+.footer__payment-khalti {
+  height: 30px;
+  object-fit: contain;
+}
+
+.footer__bottom-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.footer__social-link {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+.footer__social-link:hover {
+  color: #fff;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 1100px) {
+  .footer__content {
+    grid-template-columns: 1fr 1.5fr;
+    gap: 40px;
+  }
+
+  .footer__links-section {
+    grid-column: span 2;
+  }
+
+  .footer__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 25px;
+  }
+
+  .footer__links li {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .footer__trust-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer__container {
+    padding: 0 24px;
+  }
+
+  .footer__trust-section {
+    padding: 30px 0;
+  }
+
+  .footer__trust-container {
+    padding: 0 24px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .footer__trust-badge {
+    padding: 8px;
+  }
+
+  .footer__trust-content h4 {
+    font-size: 9px;
+  }
+
+  .footer__trust-content p {
+    font-size: 9px;
+  }
+
+  .footer__main {
+    padding: 40px 0;
+  }
+
+  .footer__content {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .footer__brand {
+    max-width: 100%;
+  }
+
+  .footer__newsletter {
+    max-width: 100%;
+  }
+
+  .footer__newsletter-form {
+    max-width: 100%;
+  }
+
+  .footer__links-section {
+    grid-column: span 1;
+  }
+
+  .footer__links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .footer__bottom-content {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .footer__bottom-left {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer__trust-container {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .footer__trust-badge {
+    display: flex;
+    align-items: flex-start;
+    text-align: left;
+    gap: 15px;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+  }
+
+  .footer__trust-icon {
+    margin-bottom: 0;
+    font-size: 18px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .footer__trust-content p {
+    max-width: 100%;
+  }
+
+  .footer__newsletter-form {
+    flex-direction: column;
+  }
+
+  .footer__newsletter-input {
+    border-right: 1px solid rgba(255, 255, 255, 0.25);
+    border-bottom: none;
+  }
+
+  .footer__newsletter-btn {
+    width: 100%;
+    padding: 14px 20px;
+  }
+
+  .footer__links {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}

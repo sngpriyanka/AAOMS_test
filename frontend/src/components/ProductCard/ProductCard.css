@@ -1,0 +1,133 @@
+.product-card {
+  flex: 0 0 auto;
+  width: 100%;
+  position: relative;
+}
+
+.product-card__image-wrapper {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  background-color: #f0f0f0;
+}
+
+.product-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-card__image {
+  transform: scale(1.05);
+}
+
+.product-card__badge {
+  position: absolute;
+  top: 12px;
+  right: 0;
+  background-color: var(--color-yellow);
+  color: var(--color-black);
+  padding: 4px 12px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  writing-mode: vertical-lr;
+  text-orientation: mixed;
+}
+
+.product-card__badge--soldout {
+  background-color: #e74c3c;
+  color: white;
+}
+
+/* ==================== WISHLIST BUTTON ==================== */
+.product-card__wishlist {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #ddd;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  opacity: 0;
+  z-index: 10;
+}
+
+.product-card:hover .product-card__wishlist {
+  opacity: 1;
+}
+
+.product-card__wishlist:hover {
+  background: #fff;
+  border-color: #000;
+  transform: scale(1.1);
+}
+
+.product-card__wishlist--active {
+  opacity: 1;
+  background: #ffe0e0;
+  border-color: #d32f2f;
+  color: #d32f2f;
+}
+
+.product-card__wishlist--active:hover {
+  background: #ffcece;
+  border-color: #b71c1c;
+}
+
+.product-card__info {
+  padding: 14px 0;
+}
+
+.product-card__name {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: var(--color-black);
+  margin-bottom: 6px;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.product-card__price {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-black);
+  margin-bottom: 10px;
+}
+
+.product-card__colors {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.product-card__color-swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1.5px solid #ddd;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.product-card__color-swatch:hover {
+  transform: scale(1.2);
+  border-color: var(--color-black);
+}
+
+.product-card__extra-colors {
+  font-size: 11px;
+  color: var(--color-gray);
+  font-weight: 500;
+}

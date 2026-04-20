@@ -1,0 +1,53 @@
+# ==================== ENVIRONMENT & SECRETS ====================
+.env
+.env.local
+.env.*.local
+
+# ==================== NODE & DEPENDENCIES ====================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# ==================== IDE & EDITOR ====================
+.vscode/
+.idea/
+*.iml
+*.swp
+*.swo
+*~
+.DS_Store
+.code-workspace
+
+# ==================== BUILD & OUTPUT ====================
+/build
+/dist
+/coverage
+
+# ==================== OS SPECIFIC ====================
+.DS_Store
+Thumbs.db
+.windows
+
+# ==================== PROJECT SPECIFIC ====================
+backend/data/*.json
+!backend/data/.gitkeep
+backend/data/backup/
+backend/logs/
+*.log
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# ==================== CACHE ====================
+.cache/
+.parcel-cache/
+.eslintcache
+
+# ==================== TEMP FILES ====================
+*.tmp
+*.bak
+tmp/

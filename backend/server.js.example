@@ -1,0 +1,130 @@
+// ==================== SERVER.JS EXAMPLE ====================
+// This shows how to update your server.js for MongoDB support
+
+require('dotenv').config();
+const express = require('express');
+const cors = require('cors');
+const path = require('path');
+
+// ==================== IMPORTS ====================
+// MongoDB Connection & Models
+const { connectDB } = require('./models/mongodb');
+const { User, Product, Order, Cart } = require('./models/schemas');
+const Database = require('./models/DatabaseAdapter');
+
+// Routes
+const authRoutes = require('./routes/authRoutes');
+const productRoutes = require('./routes/productRoutes');
+const cartRoutes = require('./routes/cartRoutes');
+const orderRoutes = require('./routes/orderRoutes');
+const userRoutes = require('./routes/userRoutes');
+
+// ==================== INITIALIZE EXPRESS ====================
+const app = express();
+
+// ==================== MIDDLEWARE ====================
+app.use(cors({
+  origin: process.env.FRONTEND_URL || 'https://aaoms-test.onrender.com',
+  credentials: true
+}));
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// ==================== DATABASE INITIALIZATION ====================
+// This is the key part! Initialize MongoDB connection
+(async () => {
+  try {
+    console.log('🔧 Initializing Database...\n');
+    
+    // Connect to MongoDB (if DATABASE_TYPE=mongodb in .env)
+    // Falls back to JSON if MongoDB unavailable or DATABASE_TYPE=json
+    await connectDB();
+    
+    // If using MongoDB, register models with the DatabaseAdapter
+    if (process.env.DATABASE_TYPE === 'mongodb') {
+      Database.useMongoModels({ User, Product, Order, Cart });
+      console.log('✅ MongoDB Models Registered\n');
+    } else {
+      console.log('📁 Using JSON File-Based Database\n');
+    }
+    
+  } catch (error) {
+    console.error('⚠️  Database Initialization Error:', error.message);
+    console.log('💾 Falling back to JSON database...\n');
+  }
+})();
+
+// ==================== ROUTES ====================
+// Health check endpoint
+app.get('/health', (req, res) => {
+  res.json({
+    status: 'ok',
+    database: process.env.DATABASE_TYPE || 'json',
+    uptime: process.uptime()
+  });
+});
+
+// API Routes
+app.use('/api/auth', authRoutes);
+app.use('/api/products', productRoutes);
+app.use('/api/cart', cartRoutes);
+app.use('/api/orders', orderRoutes);
+app.use('/api/users', userRoutes);
+
+// ==================== ERROR HANDLING ====================
+// 404 handler
+app.use((req, res) => {
+  res.status(404).json({
+    success: false,
+    message: 'Route not found'
+  });
+});
+
+// Global error handler
+app.use((err, req, res, next) => {
+  console.error('❌ Error:', err);
+  
+  res.status(err.status || 500).json({
+    success: false,
+    message: err.message || 'Internal server error',
+    // Only show detailed error in development
+    ...(process.env.NODE_ENV === 'development' && { error: err })
+  });
+});
+
+// ==================== START SERVER ====================
+const PORT = process.env.PORT || 5000;
+const server = app.listen(PORT, () => {
+  console.log(`\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
+  console.log(`🚀 Bombay Trooper Server Running!`);
+  console.log(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
+  console.log(`\n📍 Server: http://localhost:${PORT}`);
+  console.log(`🌐 Frontend: ${process.env.FRONTEND_URL || 'https://aaoms-test.onrender.com'}`);
+  console.log(`💾 Database: ${process.env.DATABASE_TYPE || 'json'}`);
+  console.log(`\n✅ Server is ready to accept requests!\n`);
+});
+
+// ==================== GRACEFUL SHUTDOWN ====================
+process.on('SIGTERM', () => {
+  console.log('\n⚠️  SIGTERM signal received: closing HTTP server');
+  server.close(() => {
+    console.log('✅ HTTP server closed');
+    process.exit(0);
+  });
+});
+
+process.on('SIGINT', () => {
+  console.log('\n⚠️  SIGINT signal received: closing HTTP server');
+  server.close(() => {
+    console.log('✅ HTTP server closed');
+    process.exit(0);
+  });
+});
+
+// ==================== UNHANDLED REJECTION ====================
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('❌ Unhandled Rejection at:', promise, 'reason:', reason);
+});
+
+module.exports = app;
