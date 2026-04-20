@@ -71,12 +71,17 @@ const connectMongoDB = async () => {
 connectMongoDB();
 
 // Middleware
-const allowedOrigins = [
-  'http://localhost:3000',
-  'http://localhost:5000',
-  'https://incomparable-pasca-899ef8.netlify.app',
-  process.env.FRONTEND_URL
-].filter(Boolean);
+const allowedOrigins = process.env.NODE_ENV === 'production' 
+  ? [
+      'https://incomparable-pasca-899ef8.netlify.app',
+      process.env.FRONTEND_URL
+    ].filter(Boolean)
+  : [
+      'http://localhost:3000',
+      'http://localhost:5000',
+      'https://incomparable-pasca-899ef8.netlify.app',
+      process.env.FRONTEND_URL
+    ].filter(Boolean);
 
 app.use(cors({
   origin: allowedOrigins,
